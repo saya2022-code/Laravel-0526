@@ -15,7 +15,8 @@ class ArticleController extends Controller
     public function index()
     {
         $message = 'Welcome my BBS';
-        return view('index', ['message' => $message]);
+        $articles = Article::all();
+        return view('index', ['message' => $message, 'articles' => $articles]);
     }
 
     /**
@@ -45,11 +46,13 @@ class ArticleController extends Controller
      * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function show(Article $article)
+    public function show(Request $request, $id, Article $article)
     {
-        //
+        $message = 'This is your article ' . $id;
+        $article = Article::find($id);
+        return view('show', ['message' => $message, 'article' => $article]);
     }
-
+    
     /**
      * Show the form for editing the specified resource.
      *

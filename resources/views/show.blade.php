@@ -8,12 +8,10 @@
     <body>
         <h1>paiza bb</h1>
         <p>{{ $message }}</p>
-        @foreach ($articles as $article)
-            <p>
-                <a href='{{ route("article.show", ["id" =>  $article->id]) }}'>
-                    {{ $article->content }}
-                </a>
-            </p>
-        @endforeach
+        <p>{{ $article->content }}</p>
+        
+        <p>
+        <a href='{{ route("index") }}'>一覧に戻る</a>
+        </p>
     </body>
 </html>
