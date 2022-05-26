@@ -24,6 +24,9 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
+Route::get('/phpinfo', function () {
+    phpinfo();
+});
 // Route::get('/articles', 'ArticleController@index')->name('article.list');
 // Route::get('/article/{id}', 'ArticleController@show')->name('article.show');
 

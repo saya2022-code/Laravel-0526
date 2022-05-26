@@ -9,9 +9,10 @@
         <h1>paiza bb</h1>
         <p>{{ $message }}</p>
         <p>{{ $article->content }}</p>
+        <p>{{ $article->username }}</p>
         
         <p>
-        <a href='{{ route("index") }}'>一覧に戻る</a>
+        <a href='/articles'>一覧に戻る</a>
         </p>
     </body>
 </html>
