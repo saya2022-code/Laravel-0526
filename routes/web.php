@@ -30,8 +30,16 @@ Route::get('/phpinfo', function () {
 // Route::get('/articles', 'ArticleController@index')->name('article.list');
 // Route::get('/article/{id}', 'ArticleController@show')->name('article.show');
 
+//一覧表示
 Route::get('/articles', [ArticleController::class, 'index'])->name('index');
+//新規記事
+Route::get('/article/new', [ArticleController::class, 'create'])->name('article.new');
+//詳細表示={id}など任意の値が入るルーティングは一番下に書く
+ // '/article/new' の/newという値が{id}に入り、エラーになる可能性があるため。
 Route::get('/article/{id}', [ArticleController::class, 'show'])->name('article.show');
+//記事削除
+Route::delete('/article/{id}', [ArticleController::class, 'destroy'])->name('article.delete');
+
 
 Route::get('/threads', [ThreadController::class, 'index'])->name('threads');
 
