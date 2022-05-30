@@ -37,6 +37,8 @@ Route::get('/article/new', [ArticleController::class, 'create'])->name('article.
 //詳細表示={id}など任意の値が入るルーティングは一番下に書く
  // '/article/new' の/newという値が{id}に入り、エラーになる可能性があるため。
 Route::get('/article/{id}', [ArticleController::class, 'show'])->name('article.show');
+//編集
+Route::get('/article/edit/{id}', [ArticleController::class, 'edit'])->name('article.edit');
 //記事削除
 Route::delete('/article/{id}', [ArticleController::class, 'destroy'])->name('article.delete');
 
