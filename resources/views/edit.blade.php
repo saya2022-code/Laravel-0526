@@ -3,10 +3,8 @@
 @section('content')
     <h1>paiza bbs</h1>
     <p>{{ $message }}</p>
-    <!-- {{ Form::open(['route' => 'article.store']) }} -->
-    <form action="/article" method="post" class="mt-2">
-    @csrf
-    <div class='form-group'>
+    {{ Form::model($article, ['route' => ['article.update', $article->id]]) }}
+        <div class='form-group'>
             {{ Form::label('content', 'Content:') }}
             {{ Form::text('content', null) }}
         </div>
@@ -15,10 +13,8 @@
             {{ Form::text('username', null) }}
         </div>
         <div class="form-group">
-            <!-- {{ Form::submit('作成する', ['class' => 'btn btn-primary']) }} -->
-            <button type="submit" class="btn btn-primary">作成する</button>
-            </form>
-            <a href='/articles'>一覧に戻る</a>
+            {{ Form::submit('保存する', ['class' => 'btn btn-primary']) }}
+            <a href='/articles'>戻る</a>
         </div>
     {{ Form::close() }}
 @endsection

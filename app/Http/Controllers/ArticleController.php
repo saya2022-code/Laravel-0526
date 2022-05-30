@@ -47,9 +47,10 @@ public function index(Request $request)
     {
         $article = new Article();
 
-        $article->content = 'Hello';
-        $article->username = 'paiza';
+        $article->content = $request->content;
+        $article->username = $request->username;
         $article->save();
+        // return redirect()->route('article.show', ['id' => $article->id]);
         return back();
         // return redirect("http://localhost:8778/articles"); 
     }
@@ -75,11 +76,11 @@ public function index(Request $request)
      */
     public function edit(Request $request, $id, Article $article)
     {
-        $message = 'This is your article '.$id;
+        $message = 'Edit your article ' . $id;
         $article = Article::find($id);
-        return view('show', ['message' => $message, 'article' => $article]);
+        return view('edit', ['message' => $message, 'article' => $article]);
     }
-
+    
     /**
      * Update the specified resource in storage.
      *
@@ -89,7 +90,12 @@ public function index(Request $request)
      */
     public function update(Request $request, Article $article)
     {
-        //
+    $article = Article::find($id);
+    $article->content = $request->content;
+    $article->user_name = $request->user_name;
+    $article->save();
+    return redirect()->route('article.show', ['id' => $article->id]);
+
     }
 
     /**

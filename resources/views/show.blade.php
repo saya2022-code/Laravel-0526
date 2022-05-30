@@ -8,6 +8,7 @@
         
         <p>
         <a href='/articles' class='btn btn-outline-primary'>一覧に戻る</a>
+        <a href='/article/edit/{{ $article->id }}' class='btn btn-outline-primary'>編集</a>
         </p>
 
         <div>
