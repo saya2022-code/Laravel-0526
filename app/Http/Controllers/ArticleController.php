@@ -33,12 +33,8 @@ public function index(Request $request)
      */
     public function create(Request $request)
     {
-        $article = new Article();
-
-        $article->content = 'Hello';
-        $article->username = 'paiza';
-        $article->save();
-        return back();
+        $message = 'New article';
+        return view('new', ['message' => $message]);
     }
 
     /**
@@ -49,7 +45,13 @@ public function index(Request $request)
      */
     public function store(Request $request)
     {
-        //
+        $article = new Article();
+
+        $article->content = 'Hello';
+        $article->username = 'paiza';
+        $article->save();
+        return back();
+        // return redirect("http://localhost:8778/articles"); 
     }
 
     /**

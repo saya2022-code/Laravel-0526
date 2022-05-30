@@ -32,8 +32,11 @@ Route::get('/phpinfo', function () {
 
 //一覧表示
 Route::get('/articles', [ArticleController::class, 'index'])->name('index');
-//新規記事
+//新規記事の作成
 Route::get('/article/new', [ArticleController::class, 'create'])->name('article.new');
+//新規記事の送信
+Route::post('/article', [ArticleController::class, 'store'])->name('article.store');
+
 //詳細表示={id}など任意の値が入るルーティングは一番下に書く
  // '/article/new' の/newという値が{id}に入り、エラーになる可能性があるため。
 Route::get('/article/{id}', [ArticleController::class, 'show'])->name('article.show');
