@@ -18,6 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//ログイン画面への遷移
+// Route::get('/login', function () {
+//     return view('login');
+// });
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
@@ -38,7 +43,7 @@ Route::get('/article/new', [ArticleController::class, 'create'])->name('article.
 Route::post('/article', [ArticleController::class, 'store'])->name('article.store');
 
 //詳細表示={id}など任意の値が入るルーティングは一番下に書く
- // '/article/new' の/newという値が{id}に入り、エラーになる可能性があるため。
+ // '/article/new' の/newなどの値が{id}に入り、エラーになる可能性があるため。
 Route::get('/article/{id}', [ArticleController::class, 'show'])->name('article.show');
 //編集画面へ遷移
 Route::get('/article/edit/{id}', [ArticleController::class, 'edit'])->name('article.edit');
