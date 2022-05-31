@@ -88,15 +88,15 @@ public function index(Request $request)
      * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Article $article)
+    public function update(Request $request, $id, Article $article)
     {
     $article = Article::find($id);
     $article->content = $request->content;
-    $article->user_name = $request->user_name;
+    $article->username = $request->username;
     $article->save();
-    return redirect()->route('article.show', ['id' => $article->id]);
-
-    }
+    // return redirect()->route('article.show', ['id' => $article->id]);
+    return redirect("http://localhost:8778/articles"); 
+}
 
     /**
      * Remove the specified resource from storage.
